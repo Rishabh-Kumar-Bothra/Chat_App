@@ -12,6 +12,10 @@ app.use('/',express.static(path.join(__dirname,'frontend')));
 io.on('connection',(socket)=>{
     console.log('new connection found'+ socket.id);
     socket.emit('connected');
+    socket.on('send_msg',(data)=>{
+       // console.log('recieved message '+ data.message);
+        io.emit('recieved_msg',data)
+    })
 })
 
 server.listen(5000,()=>{
