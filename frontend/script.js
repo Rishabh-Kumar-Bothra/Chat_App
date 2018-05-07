@@ -1,7 +1,11 @@
+window.onload = function () {
 
-let socket = io();
 
-socket.on('connection',()=>{
-    console.log('connected' + socket.id);
-})
+    let socket = io();
+
+    socket.on('connected', () => {
+        console.log('connected' + socket.id);
+    })
+
+}
 
