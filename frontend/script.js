@@ -26,12 +26,15 @@
             msglist.append($(`<li>`+data.user + ' : ' +data.message+`</li>`))
         })
 
+
+
         let user = '';
 
         loginbtn.click(function () {
             user = loginbox.val();
             logindiv.hide();
             chatdiv.show();
+            socket.emit('login',{user:user});
 
         })
     })
